@@ -1,4 +1,4 @@
-module github.com/dulli/caddy-wol
+module github.com/rvnebon/caddy-wol
 
 go 1.18
 

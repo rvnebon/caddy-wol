@@ -8,7 +8,7 @@ To add this module to your Caddy configuration, run the following [`xcaddy`](htt
 
 ```shell
 xcaddy build \
-    --with github.com/dulli/caddy-wol
+    --with github.com/rvnebon/caddy-wol
 ```
 
 ## Usage

@@ -5,6 +5,8 @@ import (
 	"net"
 	"net/http"
 	"time"
+	"os"
+	"strconv"
 
 	"github.com/caddyserver/caddy/v2"
 	"github.com/caddyserver/caddy/v2/caddyconfig/caddyfile"
@@ -84,7 +86,9 @@ func (m Middleware) ServeHTTP(w http.ResponseWriter, r *http.Request, next caddy
 		if err != nil {
 			return err
 		}
-		time.AfterFunc(10*time.Minute, func() {
+
+		number, _ := strconv.Atoi(os.Getenv("WOL_THROTTLE_MINUTES"))
+		time.AfterFunc(time.Duration(number)*time.Minute, func() {
 			_, _ = m.pool.Delete(m.key)
 		})
 	}
